@@ -1,0 +1,32 @@
+{
+  "name": "ltc-h5-qz",
+  "version": "0.0.1",
+  "description": "qz h5 svr sdk",
+  "main": "lib/h5-qz.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/builden/ltc-h5-qz.git"
+  },
+  "keywords": [
+    "rank",
+    "sort"
+  ],
+  "author": "builden <billdeng@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.61.0"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-mocha": "^2.1.3",
+    "mocha": "^2.2.5"
+  }
+}
