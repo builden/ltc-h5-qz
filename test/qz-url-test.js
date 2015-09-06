@@ -21,7 +21,7 @@ describe('qz-url', function () {
     request(url, function (err, res, body) {
       // console.log(body);
       var json = JSON.parse(body);
-      expect(json.ret).to.equal(-4);
+      expect(json.ret).to.equal(1002);
       done();
     });
   });
