@@ -1,6 +1,7 @@
 var expect = require('chai').expect;
 var qzUrl = require('../lib/qz-url.js');
 var request = require('request');
+var moment = require('moment');
 
 // 测试id 棒游记
 var appid = '1103494063';
@@ -18,9 +19,11 @@ describe('qz-url', function () {
     // console.log(url);
     expect(url).to.equal('http://openapi.tencentyun.com/v3/user/get_info?appid=1103494063&format=json&openid=D51B9AE97DB8C26A92CCA2793DE0CB8D&openkey=57A3C0B67182F950946863B2C850E257&pf=qzone&sig=gbyDD28s2It45Mo3BsnhwSiQUKo%3D');
 
+    var begTime = moment();
     request(url, function (err, res, body) {
-      // console.log(body);
       var json = JSON.parse(body);
+      json.spendTime = moment().valueOf() - begTime.valueOf();
+      console.log(json);
       expect(json.ret).to.equal(1002);
       done();
     });
