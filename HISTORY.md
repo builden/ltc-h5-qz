@@ -1,5 +1,8 @@
 # ltc-h5-qz History
 
+## 0.0.4 / 2016-01-30
+* support qqgame platform
+
 ## 0.0.3 / 2015-09-10
 * spendTime fixed to millisecond
 
