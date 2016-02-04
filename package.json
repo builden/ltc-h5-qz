@@ -1,6 +1,6 @@
 {
   "name": "ltc-h5-qz",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "qz h5 svr sdk",
   "main": "lib/h5-qz.js",
   "scripts": {

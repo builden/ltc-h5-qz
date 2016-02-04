@@ -11,8 +11,8 @@ var openkey = '57A3C0B67182F950946863B2C850E257';*/
 var appid = '1103869598';
 var appkey = 'XeVjRLTGrFJF19GW';
 var openid = 'BB741885AFFC555D2CE13DFC776C8601';
-var openkey = 'E1B07B137C42CF6F5A33C0307F9405E4';
-var pfkey = 'BE65D435F10AF2DB48C9EB716ABB6D29';
+var openkey = '8C5FE7C4DD2DD7FFB8B159A43043355E';
+var pfkey = '6020E19DA7E0396B37DF4B964B581281';
 
 describe('qz-url', function () {
   before(function () {
@@ -45,9 +45,19 @@ describe('qz-url', function () {
     });
   });
 
-/*  it.only('qqgame buy', function (done) {
+
+/**
+ * url:
+ *   http://119.147.19.43/v3/pay/buy_goods?appid=1103869598&format=json&goodsmeta=%E4%B8%AD%E6%96%87*%E6%B1%89%E5%AD%97&goodsurl=http://203.195.190.211/crayon_test/crayon/originRes/spritesheet_png/common/diamond.png&openid=BB741885AFFC555D2CE13DFC776C8601&openkey=8C5FE7C4DD2DD7FFB8B159A43043355E&payitem=123*10*1&pf=qqgame&pfkey=6020E19DA7E0396B37DF4B964B581281&ts=1454554561&zoneid=0&sig=eiGwOq6WA5HIp%2BnyGFelISVz2ZI%3D
+ *
+ * ret:
+ * { ret: 0,
+  url_params: '/v1/xs1/1103869598/qz_goods_info?token_id=CD4551A8E7E40D904F7C5FE2A9CFD3BF15199&sig=eiGwOq6WA5HIp%2BnyGFelISVz2ZI%3D&appid=1103869598',
+  token: 'CD4551A8E7E40D904F7C5FE2A9CFD3BF15199' }
+ */
+  it('qqgame buy', function (done) {
     qzUrl.switchToQQGameTest();
-    var url = qzUrl.qqgameBuy(openid, openkey, 0, pfkey, '123*10*1', '中文*汉字', 'http://203.195.190.211/crayon_test/crayon/originRes/spritesheet_png/common/diamond.png');
+    var url = qzUrl.qqgameBuy(openid, openkey, 0, pfkey, '123*10*1', 'itemname*desc', 'http://203.195.190.211/crayon_test/crayon/originRes/spritesheet_png/common/diamond.png');
     console.log(url);
     var r = request.defaults({ 'proxy': 'http://203.195.202.83:9500' });
     r.get(url, function (err, res, body) {
@@ -58,7 +68,24 @@ describe('qz-url', function () {
       expect(json.ret).to.equal(0);
       done();
     });
-  });*/
+  });
+
+  it('check sig', function() {
+    expect(qzUrl.checkSig('/v3/pay/buy_goods', {
+      appid: '1103869598',
+      format: 'json',
+      goodsmeta: 'itemname*desc',
+      goodsurl: 'http://203.195.190.211/crayon_test/crayon/originRes/spritesheet_png/common/diamond.png',
+      openid: 'BB741885AFFC555D2CE13DFC776C8601',
+      openkey: '8C5FE7C4DD2DD7FFB8B159A43043355E',
+      payitem: '123*10*1',
+      pf: 'qqgame',
+      pfkey: '6020E19DA7E0396B37DF4B964B581281',
+      ts: '1454555913',
+      zoneid: '0',
+      sig: 'FKz%2BGu5ciF43mQlhUu1B%2FT01ri4%3D',
+    })).to.be.ok();
+  });
 
   /*
   it('update score', function (done) {

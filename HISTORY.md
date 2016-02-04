@@ -1,5 +1,8 @@
 # ltc-h5-qz History
 
+## 0.0.5 / 2016-02-03
+* [add] checkSig interface
+
 ## 0.0.4 / 2016-01-30
 * support qqgame platform
 
